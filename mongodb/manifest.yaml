@@ -20,9 +20,9 @@ spec:
   template:
     metadata:
       labels:
-        purpose: deployment-demo
+        componenet: mongodb
         project: roboshop
-        app: nginx
+        tier: database
     spec:
       containers:
       - name: mongodb
@@ -31,15 +31,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-svc
+  name: mongodb
+  namespace: roboshop
   labels:
-    purpose: service-demo
+    componenet: mongodb
+    project: roboshop
+    tier: database
 spec:
   selector:
-    purpose: deployment-demo
+    componenet: mongodb
     project: roboshop
-    app: nginx
+    tier: database
   ports:
     - protocol: TCP
-      port: 80 # service port
-      targetPort: 80 # container port
+      port: 27017 # service port
+      targetPort: 27017 # container port
