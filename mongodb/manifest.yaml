@@ -5,7 +5,7 @@ metadata:
   namespace: roboshop
   # deployment labels
   labels:
-    componenet: mongodb
+    component: mongodb
     project: roboshop
     tier: database
 spec:
@@ -13,14 +13,14 @@ spec:
   # These are the labels replica set use to create pod replicas, this should match pod labels
   selector:
     matchLabels:
-    componenet: mongodb
+    component: mongodb
     project: roboshop
     tier: database
   # This is pod definition
   template:
     metadata:
       labels:
-        componenet: mongodb
+        component: mongodb
         project: roboshop
         tier: database
     spec:
@@ -34,12 +34,12 @@ metadata:
   name: mongodb
   namespace: roboshop
   labels:
-    componenet: mongodb
+    component: mongodb
     project: roboshop
     tier: database
 spec:
   selector:
-    componenet: mongodb
+    component: mongodb
     project: roboshop
     tier: database
   ports:
